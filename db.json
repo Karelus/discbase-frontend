@@ -1,0 +1,28 @@
+{
+  "discs": [
+    {
+      "id": 1,
+      "name": "Felon",
+      "manufacturer": "Dynamic Discs",
+      "type": "fairway driver"
+    },
+    {
+      "id": 2,
+      "name": "Warden",
+      "manufacturer": "Dynamic Discs",
+      "type": "putter"
+    },
+    {
+      "id": 3,
+      "name": "Buzzz",
+      "manufacturer": "Discraft",
+      "type": "midrange"
+    },
+    {
+      "id": 4,
+      "name": "Destroyer",
+      "manufacturer": "Dynamic Discs",
+      "type": "distance driver"
+    }
+  ]
+}
