@@ -1,14 +1,13 @@
 ## Discbase for disc golf enthusiasts
 
-Project created with React and TypeScript meant to present a list of items, and a single view of the item
-User can create new or delete already existing items
-App uses mocked REST api
+Project created with React and TypeScript meant to present a list of items, and a single view of the item. User can create new or delete already existing items. App uses mocked REST api
 
 Notable npm packages used:
-_ MaterialUI https://www.npmjs.com/package/@mui/material
-_ React Router https://www.npmjs.com/package/react-router
-_ Axios https://www.npmjs.com/package/axios
-_ Json-server https://www.npmjs.com/package/json-server
+
+- MaterialUI https://www.npmjs.com/package/@mui/material
+- React Router https://www.npmjs.com/package/react-router
+- Axios https://www.npmjs.com/package/axios
+- Json-server https://www.npmjs.com/package/json-server
 
 To get the app going, run:
 
