@@ -1,18 +1,25 @@
-import { useEffect } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { ThemeProvider } from "@mui/material";
+import theme from "./Util/Theme";
+import { Dashboard, SingleDisc } from "./Features/Discs";
+import Header from "./Components/Header";
 
-function App() {
-  useEffect(() => {
-    fetch("https://mockend.com/Karelus/discbase-frontend/posts")
-      .then((response) => console.log(response))
-      .catch((e) => console.error(e))
-      .finally(() => console.log("something went wrong"));
-  }, []);
-
+const App = () => {
   return (
-    <div className="App">
-      <h2>Foo</h2>
-    </div>
+    <ThemeProvider theme={theme}>
+      <Header />
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <Dashboard />
+          </Route>
+          <Route path="/discs/:id">
+            <SingleDisc />
+          </Route>
+        </Switch>
+      </Router>
+    </ThemeProvider>
   );
-}
+};
 
 export default App;
