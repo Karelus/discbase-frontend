@@ -101,16 +101,19 @@ const Dashboard: FC = () => {
               <Box sx={{ display: "flex", flexWrap: "wrap" }}>
                 {loading ? (
                   <>
-                    {Array.from({ length: constants.maxSkeletonItems }, () => (
-                      <Box sx={{ mt: 1, mr: 1 }}>
-                        <Skeleton
-                          variant="rectangular"
-                          animation="wave"
-                          width={200}
-                          height={200}
-                        />
-                      </Box>
-                    ))}
+                    {Array.from(
+                      { length: constants.maxSkeletonItems },
+                      (x, i) => (
+                        <Box key={`skeleton ${i}`} sx={{ mt: 1, mr: 1 }}>
+                          <Skeleton
+                            variant="rectangular"
+                            animation="wave"
+                            width={200}
+                            height={200}
+                          />
+                        </Box>
+                      )
+                    )}
                   </>
                 ) : (
                   <>
