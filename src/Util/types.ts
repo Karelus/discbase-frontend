@@ -2,6 +2,7 @@ export type DiscType =
   | "putter"
   | "midrange"
   | "fairway driver"
+  | "hybrid driver"
   | "distance driver";
 
 export type Manufacturer =

@@ -13,8 +13,8 @@ import {
   Stack,
 } from "@mui/material";
 
-import { Disc, DiscType, Manufacturer } from "../../Util/types";
-import constants from "../../Util/constants";
+import { Disc, DiscType, Manufacturer } from "Util/types";
+import constants from "Util/constants";
 
 const initialDisc: Disc = {
   name: "",

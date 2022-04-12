@@ -59,6 +59,36 @@
       "turn": "-2",
       "fade": "2",
       "id": 7
+    },
+    {
+      "name": "H3",
+      "manufacturer": "Prodigy",
+      "type": "hybrid driver",
+      "speed": "10",
+      "glide": "4",
+      "turn": "-2",
+      "fade": "2",
+      "id": 8
+    },
+    {
+      "name": "Pa-1",
+      "manufacturer": "Prodigy",
+      "type": "putter",
+      "speed": "3",
+      "glide": "3",
+      "turn": 0,
+      "fade": "2",
+      "id": 9
+    },
+    {
+      "name": "Zone",
+      "manufacturer": "Discraft",
+      "type": "putter",
+      "speed": "4",
+      "glide": "3",
+      "turn": 0,
+      "fade": "3",
+      "id": 10
     }
   ]
 }

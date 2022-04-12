@@ -1,22 +1,15 @@
 import { FC, useEffect, useState } from "react";
-import { client } from "../../Util/ApiClient";
 import { useParams } from "react-router-dom";
 
-import {
-  Box,
-  Typography,
-  Stack,
-  Skeleton,
-  Button,
-  Chip,
-  useTheme,
-} from "@mui/material";
+import { Box, Typography, Button, Chip, useTheme } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
-import MainContainer from "../../Components/MainContainer";
-import StyledLink from "../../Components/StyledLink";
-import { Disc } from "../../Util/types";
-import constants from "../../Util/constants";
+import { client } from "Util/ApiClient";
+import MainContainer from "Components/MainContainer";
+import StyledLink from "Components/StyledLink";
+import SingleDiscSkeleton from "./Components/SingleDiscSkeleton";
+import { Disc } from "Util/types";
+import constants from "Util/constants";
 
 const SingleDisc: FC = () => {
   let { id } = useParams<{ id: string }>();
@@ -54,12 +47,7 @@ const SingleDisc: FC = () => {
       </StyledLink>
       <Box sx={{ maxWidth: constants.contentMaxWidth }}>
         {discLoading ? (
-          <Stack spacing={1} sx={{ mt: 2 }}>
-            <Skeleton variant="text" width={210} height={20} sx={{ mb: 1 }} />
-            <Skeleton variant="text" width={300} height={30} />
-            <Skeleton variant="text" width={300} height={30} />
-            <Skeleton variant="circular" width={300} height={300} />
-          </Stack>
+          <SingleDiscSkeleton />
         ) : (
           <>
             <Typography variant="overline" sx={{ fontSize: "1.3rem" }}>

@@ -1,25 +1,36 @@
 import { FC, useEffect, useState } from "react";
 import { Box, Typography, Button, Skeleton } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
-import { client } from "../../Util/ApiClient";
+import { client } from "Util/ApiClient";
 
-import MainContainer from "../../Components/MainContainer";
-import AddDisc from "./AddDisc";
-import DiscCard from "./DiscCard";
-import DiscTags from "../../Components/DiscTags";
+import MainContainer from "Components/MainContainer";
+import AddDisc from "./Components/AddDisc";
+import DiscCard from "./Components/DiscCard";
+import DiscTags from "./Components/DiscTags";
 
-import { Disc } from "../../Util/types";
-import constants from "../../Util/constants";
+import { Disc, DiscType } from "Util/types";
+import constants from "Util/constants";
 
 const Dashboard: FC = () => {
   const [addFormVisible, setAddFormVisible] = useState<boolean>(false);
   const [allDiscs, setAllDiscs] = useState<Disc[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
+  const [filters, setFilters] = useState<DiscType[]>([]);
 
   const getAllDiscs = async () => {
     try {
       setLoading(true);
-      let response = await client.get("/discs");
+      let url = "/discs";
+      if (filters) {
+        filters.forEach((filter, i) => {
+          if (i === 0) {
+            url += `?type=${filter}`;
+          } else {
+            url += `&type=${filter}`;
+          }
+        });
+      }
+      let response = await client.get(url);
       setAllDiscs(response.data);
     } catch (error) {
       console.error(error);
@@ -62,9 +73,17 @@ const Dashboard: FC = () => {
     setAddFormVisible(false);
   };
 
+  const onFilterClick = (type: DiscType) => {
+    if (filters.includes(type)) {
+      setFilters((prevState) => prevState.filter((t) => t !== type));
+    } else {
+      setFilters((prevState) => prevState.concat(type));
+    }
+  };
+
   useEffect(() => {
     getAllDiscs();
-  }, []);
+  }, [filters]);
 
   return (
     <MainContainer>
@@ -77,10 +96,14 @@ const Dashboard: FC = () => {
         }}
       >
         <Box sx={{ width: "100%" }}>
-          <Typography variant="h5" sx={{ m: 0.5 }}>
+          <Typography variant="h5" sx={{ m: 0.5, fontWeight: 500 }}>
             Your bag
           </Typography>
-          <DiscTags discsInBag={allDiscs} />
+          <DiscTags
+            discs={allDiscs}
+            filters={filters}
+            onFilterClick={onFilterClick}
+          />
           {addFormVisible ? (
             <AddDisc
               addDisc={addDisc}

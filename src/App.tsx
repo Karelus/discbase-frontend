@@ -1,7 +1,8 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { ThemeProvider } from "@mui/material";
 import theme from "./Util/Theme";
-import { Dashboard, SingleDisc } from "./Features/Discs";
+import Dashboard from "Features/Dashboard";
+import SingleDisc from "./Features/Discs";
 import Header from "./Components/Header";
 
 const App = () => {

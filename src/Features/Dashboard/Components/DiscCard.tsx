@@ -13,7 +13,7 @@ import {
   Typography,
 } from "@mui/material";
 
-import { Disc } from "../../Util/types";
+import { Disc } from "Util/types";
 
 const DiscCard: FC<{
   disc: Disc;

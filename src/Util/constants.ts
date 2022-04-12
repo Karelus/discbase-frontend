@@ -2,7 +2,7 @@ import { DiscType, Manufacturer } from "./types";
 
 const contentMaxWidth = 1600;
 const sidebarMaxWidth = 400;
-const maxSkeletonItems = 20;
+const maxSkeletonItems = 4;
 
 const welcoleText = "Welcome to the Discbase!";
 const welcomeSubText = "Start by building your bag today";
@@ -19,6 +19,7 @@ const discTypes: DiscType[] = [
   "putter",
   "midrange",
   "fairway driver",
+  "hybrid driver",
   "distance driver",
 ];
 
