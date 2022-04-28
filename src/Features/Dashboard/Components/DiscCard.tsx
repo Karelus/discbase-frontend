@@ -17,7 +17,7 @@ import { Disc } from "Util/types";
 
 const DiscCard: FC<{
   disc: Disc;
-  handleDelete: (id: number | undefined) => void;
+  handleDelete: (id: string | undefined) => void;
 }> = ({ disc, handleDelete }) => {
   const theme = useTheme();
 

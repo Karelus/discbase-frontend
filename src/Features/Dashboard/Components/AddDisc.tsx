@@ -143,23 +143,23 @@ const AddDisc: FC<{
         <FormControl fullWidth variant="filled" sx={{ my: 1 }}>
           <Stack direction="row" spacing={1}>
             <TextField
-              label="Speed (2-14)"
+              label="Speed (1-14)"
               type="number"
               variant="filled"
               sx={{ width: "25%" }}
               value={discValues.speed}
-              inputProps={{ min: 2, max: 14 }}
+              inputProps={{ min: 1, max: 14 }}
               onChange={(event: ChangeEvent<HTMLInputElement>) =>
                 handleFlightStatChange(event, "speed")
               }
             />
             <TextField
-              label="Glide (0-6)"
+              label="Glide (0-8)"
               type="number"
               variant="filled"
               sx={{ width: "25%" }}
               value={discValues.glide}
-              inputProps={{ min: 0, max: 6 }}
+              inputProps={{ min: 0, max: 8 }}
               onChange={(event: ChangeEvent<HTMLInputElement>) =>
                 handleFlightStatChange(event, "glide")
               }

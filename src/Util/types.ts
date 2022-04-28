@@ -13,12 +13,12 @@ export type Manufacturer =
   | "Innova";
 
 export type Disc = {
-  id?: number;
+  id?: string;
   name: string;
   manufacturer: Manufacturer;
   type: DiscType;
-  speed: number | string;
-  glide: number | string;
-  turn: number | string;
-  fade: number | string;
+  speed: number;
+  glide: number;
+  turn: number;
+  fade: number;
 };

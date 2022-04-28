@@ -53,7 +53,7 @@ const Dashboard: FC = () => {
     }
   };
 
-  const deleteDisc = async (id: number | undefined) => {
+  const deleteDisc = async (id: string | undefined) => {
     try {
       setLoading(true);
       let response = await client.delete(`/discs/${id}`);
