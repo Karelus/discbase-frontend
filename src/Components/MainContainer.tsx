@@ -1,9 +1,8 @@
-import { FC } from "react";
-import { Box, Typography, useTheme } from "@mui/material";
-import constants from "Util/constants";
+import { FC } from "react"
+import { Box, useTheme } from "@mui/material"
 
 const MainContainer: FC = ({ children }) => {
-  const theme = useTheme();
+  const theme = useTheme()
 
   return (
     <Box
@@ -12,7 +11,7 @@ const MainContainer: FC = ({ children }) => {
     >
       {children}
     </Box>
-  );
-};
+  )
+}
 
-export default MainContainer;
+export default MainContainer

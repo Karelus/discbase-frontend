@@ -1,5 +1,5 @@
-import { FC } from "react";
-import { Link as RouterLink } from "react-router-dom";
+import { FC, useState } from "react"
+import { Link as RouterLink } from "react-router-dom"
 
 import {
   Grid,
@@ -11,15 +11,33 @@ import {
   Button,
   useTheme,
   Typography,
-} from "@mui/material";
+  Dialog,
+  DialogTitle,
+  DialogActions,
+  DialogContent,
+} from "@mui/material"
 
-import { Disc } from "Util/types";
+import { Disc } from "Util/types"
 
 const DiscCard: FC<{
-  disc: Disc;
-  handleDelete: (id: string | undefined) => void;
+  disc: Disc
+  handleDelete: (id: string | undefined) => void
 }> = ({ disc, handleDelete }) => {
-  const theme = useTheme();
+  const theme = useTheme()
+  const [open, setOpen] = useState(false)
+
+  const handleOpen = () => {
+    setOpen(true)
+  }
+
+  const handleClose = () => {
+    setOpen(false)
+  }
+
+  const handleDeleteClick = () => {
+    console.log("here")
+    handleOpen()
+  }
 
   return (
     <Grid item key={disc.id}>
@@ -54,14 +72,28 @@ const DiscCard: FC<{
             size="small"
             variant="contained"
             color="error"
-            onClick={() => handleDelete(disc.id)}
+            onClick={handleDeleteClick}
           >
             Delete
           </Button>
         </CardActions>
+        <Dialog open={open} onClose={handleClose}>
+          <DialogTitle>Delete disc</DialogTitle>
+          <DialogContent>
+            <Typography>Are you sure you want to delete this disc?</Typography>
+          </DialogContent>
+          <DialogActions>
+            <Button size="small" variant="contained" color="error">
+              Yes
+            </Button>
+            <Button size="small" variant="contained" color="secondary">
+              No
+            </Button>
+          </DialogActions>
+        </Dialog>
       </Card>
     </Grid>
-  );
-};
+  )
+}
 
-export default DiscCard;
+export default DiscCard
